@@ -1,0 +1,9 @@
+Expression  Value
+x & y       32
+x | y       127
+~x | ~y     223
+x & !y      0
+x && y      1
+x || y      1
+!x || !y    0
+x && ~y     1

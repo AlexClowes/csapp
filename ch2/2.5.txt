@@ -1,0 +1,4 @@
+   Little endian  Big endian
+A: 21             87
+B: 21 43          87 65
+C: 21 43 65       87 65 43

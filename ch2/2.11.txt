@@ -1,0 +1,12 @@
+A:
+For an array of length 2k + 1, the final values of first and last are both k.
+
+B:
+With first = last = k, the final call to inplace_swap is
+inplace_swap(&a[k], &a[k])
+then in the function inplace_swap, we have x and y both pointing to the same
+location in memory, and so the first statement *y = *x ^ *y has the effect of
+setting a[k] = 0.
+
+C:
+The problem can be fixed by using < instead of <= in the for loop.

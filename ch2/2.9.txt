@@ -1,0 +1,11 @@
+A:
+Colour  Complement
+Black   White
+Blue    Yellow
+Green   Magenta
+Red     Cyan
+
+B:
+Blue | Green  = Cyan
+Yellow & Cyan = Green
+Red ^ Magenta = Blue
