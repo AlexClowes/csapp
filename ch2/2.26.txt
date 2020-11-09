@@ -1,0 +1,9 @@
+A:
+If string t is longer than string s, the function will give an incorrect result.
+B:
+strlen(s) - strlen(t) is of type size_t, which is the same as the unsigned type
+and hence is never negative. So the function will always report that string s is
+longer, unless s and t have the same length.
+C:
+We can fix the code by casting the results of the 2 calls to strlen to type int,
+or by testing if strlen(s) > strlen(t) instead.

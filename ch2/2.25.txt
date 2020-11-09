@@ -1,0 +1,6 @@
+Because length is of unsigned type, the value of length - 1 is UINT_MAX, a very
+large number. So the program will try to access a[0], a[1], ..., a[UINT_MAX - 1],
+eventually causing a memory error.
+
+We could fix this by declaring length as an int, or by using i < length in the
+for loop instead of i <= length - 1.

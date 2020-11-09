@@ -1,0 +1,12 @@
+A:
+w           fun1(w)     fun2(w)
+0x00000076  0x00000076  0x00000076
+0x87654321  0x00000021  0x00000021
+0x000000C9  0x000000C9  0xFFFFFFC9
+0xEDCBA987  0x00000087  0xFFFFFF87
+
+B:
+fun1(x) gets the lowest order 8 bits of x, expressed as an integer in the range
+0, 1, ..., 255.
+fun2(x) gets the lowest order 8 bits of x, expressed as an integer in the range
+-128, -127, ..., 127.

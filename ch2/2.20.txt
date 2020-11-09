@@ -1,0 +1,3 @@
+In general, T2Uw(x) = x for x >= 0, and T2Uw(x) = x + 2^w for x < 0.
+So in exercise 2.19, we have T2U4(x) = x for x >= 0, and T2U4(x) = x + 16 for
+x < 0.
