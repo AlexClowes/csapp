@@ -1,0 +1,27 @@
+If x = 0, then x * y = 0 for any value of y, and there is no overflow.
+
+Otherwise, x != 0, and let p = x * y.
+We have
+x = -2^(w-1)x[w-1] + 2^(w-2)x[w-2] + ... + 2x[1] + x[0]
+y = -2^(w-1)y[w-1] + 2^(w-2)y[w-2] + ... + 2y[1] + y[0]
+and by multiplying we obtain
+x . y =   2^(2w-2)x[w-1]y[w-1]
+        + 2^(2w-3)(-x[w-1]y[w-2] - x[w-2]y[w-1])
+        + 2^(2w-4)(-x[w-1]y[w-3] + x[w-2]y[w-2] - x[w-3]y[w-1])
+        .
+        .
+        .
+        + x[0]y[0]
+p is obtained by truncating this sum to exclude terms 2^n for n > w - 1. Then
+there is no overflow iff the coefficients for each of these truncated terms is
+0. So we say that x . y = p + t2^w, with overflow iff t != 0.
+
+It is a fact there exist q, r s.t.  p = qx + r, |r| < |x|.
+
+q = y <=> p = xy + r = xy + t2^w
+      <=> r = t2^w
+      <=> |t|2^w = |r| < |x| < 2^w
+      <=> |t| < 1
+      <=> t = 0 = r
+
+Thus if x != 0 and there is no overflow, then p / x == y.

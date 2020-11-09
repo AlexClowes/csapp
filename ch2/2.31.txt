@@ -1,0 +1,2 @@
+Even if overflow has occurred, the expression in the return statement will still
+evaluate as 1. (x+y)-x always evaluates as y, regardless of overflow.

@@ -1,0 +1,14 @@
+A:
+asize is now of type int64_t, but it will then be cast to size_t, which uses
+only 32 bits in the call to malloc. So the overflow bug is still present.
+B:
+The vulnerability could be eliminated by explicitly checking for the overflow,
+and returning NULL if the multiplication would overflow. If asize has overflowed,
+then it would not be possible to allocate that much memory in any case.
+
+uint64_t asize = ele_cnt * (uint64_t) ele_size;
+if (asize != (size_t) asize) {
+    // Multiplication has overflowed, not possible to allocate this much memory 
+    return NULL;
+}
+void *result = malloc(asize);

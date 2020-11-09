@@ -1,0 +1,2 @@
+Let y be INT_MIN. Then x - y overflows iff x >= 0. But x + (-y) overflows iff
+x < 0. So this implementation of tsub_ok is always wrong for y = INT_MIN.
