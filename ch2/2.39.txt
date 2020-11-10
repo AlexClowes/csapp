@@ -1,0 +1,3 @@
+If bit position n is the most significant bit, we can use
+0 - (x << m) = -(x << m)
+instead.

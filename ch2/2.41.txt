@@ -1,0 +1,4 @@
+Form A requires n - m + 1 shifts and n - m additions.
+Form B requires 2 shifts and one addition.
+
+So when n = m, use A, when n = m + 1 use either, and when n > m + 1 use B.

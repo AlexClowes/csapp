@@ -1,0 +1,1 @@
+With a single LEA instruction, we can compute a, 2a, 3a, 4a, 5a, 8a, and 9a.
