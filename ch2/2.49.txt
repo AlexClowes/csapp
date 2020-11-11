@@ -1,0 +1,5 @@
+A:
+The smallest positive integer that cannot be represented is 2^(n + 1) + 1.
+
+B:
+n = 23 => 2^(n + 1) + 1 = 2^24 + 1 = 16777217.
