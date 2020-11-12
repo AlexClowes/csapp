@@ -1,0 +1,36 @@
+A:
+x == (int)(double) x
+x is cast from int to double, which preserves the exact numeric value. Then x
+is cast back to int, which suffers no rounding because it is an exact integer.
+So this always evaluates to true.
+
+B:
+x == (int)(float) x
+Not true for x = 2^24 + 1.
+
+C:
+d == (double)(float) d
+Not true for x = 2^-150.
+
+D:
+f == (float)(double) f
+f is cast from float to double, which preserves the exact value. Then f is cast
+back to float, which suffers no rounding. So this always evaluates to true.
+
+E:
+f == -(-f)
+Yes. Negating a float just flips the sign bit.
+
+F:
+1.0/2 == 1/2.0
+In 1.0 / 2, the 2 is cast to a float 2.0, so the value is 1.0 / 2.0. Similarly,
+1/2.0 is evaluated as 1.0 / 2.0. So this is always true.
+
+G:
+d * d >= 0.0
+Always true for floating point values.
+
+H:
+(f+d)-f == d
+If f and d are sufficiently large, the addition f + d overflows to +inf. Then
+(f+d)-f evalutes as +inf != d.
