@@ -1,0 +1,29 @@
+A: (x < y) == (-x > -y)
+   Suppose x = 0, y = INT_MIN = -2^31.
+   Clearly (x < y) = 0.
+   But -x = 0, -y = -2^31, and hence (-x > -y) = (0 > -2^31) = 1.
+   So not always true.
+
+B: ((x + y) << 4) + y - x == 17 * y + 15 * x
+   For any values of x and y, (x + y) << 4 = (x + y) * 16.
+   So ((x + y) << 4) + y - x = (x + y) * 16 + y - x = 17 * y + 15 * x.
+   So always true.
+
+C: ~x + ~y + 1 == ~(x + y)
+   For any value of x, ~x = -1 - x.
+   So ~x + ~y + 1 = -1 - x - 1 - y + 1
+                  = -1 - (x + y)
+                  = ~(x + y)
+   So always true.
+
+D: (ux - uy) == -(unsigned)(y - x)
+   -(unsigned)(y - x) = -(y - x + 2^32 * (y - x)_31) (mod 2^32)
+                      = -(y - x)                     (mod 2^32)
+                      = x - y                        (mod 2^32)
+   ux - uy = (x + 2^32 * x_31) - (y - 2^32 * y_31) (mod 2^32)
+           = x - y                                 (mod 2^32)
+   So always true.
+
+E: ((x >> 2) << 2) <= x
+   (x >> 2) << 2 = floor(x / 4) * 4 <= x for any value of x.
+   So always true.

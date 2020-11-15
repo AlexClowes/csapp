@@ -1,0 +1,17 @@
+A: E = 2
+   M = 7 / 4
+   f = 3 / 4
+   V = 7.0                     (k-2)   (n - 2)
+   The bit representation is 010...01110.....0.
+
+B: E = n
+   M = 2 - 2^-n
+   f = 1 - 2^-n
+   V = 2^(n+1) - 1            (bit representation of n)  k
+   The bit representation is 0x.......................x1...1.
+
+C: E = 2^(k-1) - 2
+   M = 1
+   f = 0
+   V = 2^(2^(k-1) - 2)         k-2     n
+   The bit representation is 01...1010...0.

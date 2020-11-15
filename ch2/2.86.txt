@@ -1,0 +1,8 @@
+                                Extended Precision
+Description                     Value            Decimal
+                                  14       62
+Smallest positive denormalised  0 0..01 0 0..01  2^-16445
+                                   14      63
+Smallest positive normalised    0 0..01 1 0..0   2^-16382
+                                   14      63
+Largest normalised              0 1..10 1 1..1   2^16385 * (1 - 2^-64)

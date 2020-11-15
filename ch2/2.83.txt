@@ -1,0 +1,5 @@
+A: The infinite string has value Y / (2^k - 1).
+
+B: (a) Y = 5, k = 3 => 5 / 7
+   (b) Y = 6, k = 4 => 6 / 15 = 2 / 5
+   (c) Y = 19, k = 6 => 19 / 63

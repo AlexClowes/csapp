@@ -1,0 +1,22 @@
+A: (float) x == (float) dx
+   Equivalent to (float) x == (float) (double) x. There is no loss of precision
+   casting from int -> double -> float versus int -> float, so always true.
+
+B: dx - dy == (double) (x - y)
+   Suppose x = 0, y = INT_MIN = -2^31.
+   Then (double) (x - y) = (double) -2^31 = -2147483648.0
+   and dx - dy = 0.0 + 2^31 = 2147483648.0.
+   So this isn't always true.
+
+C: (dx + dy) + dz == dx + (dy + dz)
+   64-bit floating point values can exactly represent all values taken by 32-bit
+   ints, so this is always true.
+
+D: (dx * dy) * dz == dx * (dy * dz)
+   The double type cannot exactly represent integers with magnitude >= 2^53.
+   But we have -2^31 <= dx, dy, dz < 2^31, so the products can exceed this
+   threshold and cause rounding errors.
+
+E: dx / dx == dz / dz
+   Suppose x = 0.0, z = 1.0.
+   Then dx / dx = NaN, dz / dz = 1.0.
