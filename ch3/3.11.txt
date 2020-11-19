@@ -1,0 +1,9 @@
+A: 
+The instruction "xorq %rdx, %rdx" has the effect of setting the contents of
+register %rdx to zero.
+
+B:
+A more straightforward way to express this would be "movq $0, %rdx".
+
+C:
+"xorq %rdx, %rdx" requires 3 bytes, but "movq $0, %rdx" requires 7 bytes.

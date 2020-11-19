@@ -1,0 +1,27 @@
+movb $0xF, (%ebx) 
+In x86-64, memory references should always be given with quad word registers. So
+instead of (%ebx), we should use (%rbx).
+
+movl %rax, (%rsp)
+movl is used for double words, but %rax is a quad word. We should use movq
+instead.
+
+movw (%rax), 4(%rsp)
+We cannot move from one memory address to another. This should be expressed as 
+two instructions, e.g.
+movw (%rax), %rbx
+movw %rbx 4(%rsp)
+
+movb %al, %sl
+Register %sl doesn't exist. Probably %sil is meant instead.
+
+movq %rax, $0x123
+We cannot have a mov instruction with an immediate value as the destination.
+
+movl %eax, %rdx
+%eax is a double word register, but %rdx is a quad word register. %rdx should be
+replaced with %edx.
+
+movb %si, 8(%rbp)
+movb moves a single byte, but %si is a double word register. %sil should be used
+instead.
