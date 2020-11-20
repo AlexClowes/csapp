@@ -1,0 +1,15 @@
+A:
+TEST is signed >=.
+data_t is long.
+
+B:
+TEST is ==.
+data_t is short or unsigned short.
+
+C:
+TEST is signed >.
+data_t is unsigned char.
+
+D:
+TEST is signed <=.
+data_t is int.

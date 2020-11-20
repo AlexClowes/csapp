@@ -1,0 +1,13 @@
+A:
+OP is integer division.
+
+B:
+arith:
+  leaq    7(%rdi), %rax         Set %rax = x + 7
+  testq   %rdi, %rdi            Test x
+  cmovns  %rdi, %rax            If x >= 0, set %rax = x
+  sarq    %3, %rax              Arithmetic right shift of %rax by 3.
+  ret                           Return
+
+If x >= 0, arith(x) returns x >> 3 = x / 8.
+If x < 0, arith(x) returns (x + y) >> 3 = x / 8.

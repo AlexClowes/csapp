@@ -1,0 +1,15 @@
+A:
+COMP is signed <.
+data_t is int.
+
+B:
+COMP is signed >=.
+data_t is short.
+
+C:
+COMP is unsigned <=.
+data_t is unsigned char.
+
+D:
+COMP is !=.
+data_t is long or unsigned long or a pointer.

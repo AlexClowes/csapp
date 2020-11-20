@@ -1,0 +1,2 @@
+A: 30 cycles.
+B: 46 cycles.
