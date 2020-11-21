@@ -1,0 +1,6 @@
+A:
+The case labels had values -1, 0, 1, 2, 4, 5, 7.
+
+B:
+The case with destination .L5 has labels 0, 7.
+The case with destination .L7 has labels 2, 4.

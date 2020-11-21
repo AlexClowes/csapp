@@ -1,0 +1,23 @@
+A:
+x is stored in register %rax.
+y is stored in register %rcx.
+n is stored in register %rdx.
+
+B:
+Pointer p always holds the address of x, so (*p)++ is equivalent to x++, and we
+do not require a pointer dereference. Then the statements x += y and x++ can be
+combined to the single equivalent statement x += y + 1, which corresponds to the
+single assembly instruction leaq 1(%rcx, %rax), %rdx.
+
+C:
+dw_loop:
+  movq  %rdi, %rax              Copy x to %rax.
+  movq  %rdi, %rcx              Copy x to %rcx.
+  imulq %rdi, %rcs              Compute y = x * x.
+  leaq  (%rdi, %rdi), %rdx      Compute n = x + x = 2 * x.
+.L2:
+  leaq  1(%rcx, %rax), %rax     Compute x = x + y + 1.
+  subq  $1, %rdx                Compute n -= 1.
+  testq %rdx, %rdx              Test n
+  jg    .L2                     Jump to .L2 if n > 0.
+  rep; ret                      Return

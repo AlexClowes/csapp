@@ -1,0 +1,10 @@
+A:
+Local values a0, a1, ..., a5 are stored in callee-saved registers.
+
+B:
+Local values a6 and a7 are stored on the stack.
+
+C:
+There are 8 local variables to be stored, but only 6 callee-saved registers. So
+two local variables have to go on the stack instead. If they were stored in
+caller-saved registers instead, they might be overriden when Q is called.

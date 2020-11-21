@@ -1,0 +1,3 @@
+The two possible declarations for procprob are
+size_t procprob(int a, short b, long *u, char *v);
+size_t procprob(int b, short a, long *v, char *u);
