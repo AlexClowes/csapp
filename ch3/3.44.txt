@@ -1,0 +1,52 @@
+A:
+struct P1 {int i; char c; int j; char d;};
+
+Contents  Offset
+i         0
+c         4
+j         8
+d         12
+
+Total size: 16 bytes
+Alignment: 4 bytes
+
+B:
+struct P2 {int i; char c; char d; long j;};
+
+Contents  Offset
+i         0
+c         4
+d         5
+j         8
+
+Total size: 16 bytes
+Alignment: 8 bytes
+
+C:
+struct P3 {short w[3]; char c[3];};
+
+Contents  Offset
+w         0
+c         6
+Total size: 10 bytes
+Alignment: 2 bytes
+
+D:
+struct P4 {short w[5]; char *c[3];};
+
+Contents  Offset
+w         0
+c         16
+
+Total size: 40 bytes
+Alignment: 8 bytes
+
+E:
+struct P5 {struct P3 a[2]; struct P2 t;};
+
+Contents  Offset
+a         0
+t         24
+
+Total size: 40 bytes
+Alignment: 8 bytes

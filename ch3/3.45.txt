@@ -1,0 +1,38 @@
+A:
+Field  Offset
+a      0
+b      8
+c      16
+d      24
+e      28
+f      32
+g      40
+h      48
+
+B:
+The struct requires 56 bytes.
+
+C:
+Listing the fields in descending order of size, i.e.
+struct {
+    char *a;
+    double c;
+    long g;
+    float e;
+    int h;
+    short b;
+    char d;
+    char f;
+} rec;
+results in the following offsets:
+Field  Offset
+a      0
+c      8
+g      16
+e      24
+h      28
+b      32
+d      34
+f      35
+
+This struct requires only 40 bytes.
