@@ -1,0 +1,23 @@
+A:
+00  00  00  00  00  40  00  76 Return Address
+01  23  45  67  89  AB  CD  EF Saved value of %rbx
+--  --  --  --  --  --  --  --
+--  --  --  -- [3] [2] [1] [0] buf = %rsp
+
+B:
+00  00  00  00  00  40  00  34 Return Address
+33  32  31  30  39  38  37  36 Saved value of %rbx
+35  34  33  32  31  30  39  38
+37  36  35  34  33  32  31  30 buf = %rsp
+
+C:
+The program will attempt to return to address 0x40034.
+
+D:
+By the time get_line has returned, the value in the %rbx register will be
+corrupted.
+
+E:
+The code for get_line doesn't check that the pointer returned by malloc isn't
+NULL.
+The call to malloc should be malloc(strlen(buf) + 1), not malloc(strlen(buf)).

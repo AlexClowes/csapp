@@ -1,0 +1,9 @@
+A:
+For the unprotected version, buf is at %rsp, v is at %rsp + 24.
+For the protected version, buf is at %rsp + 16, v is at %rsp + 8, and the canary
+value is at %rsp + 40.
+
+B:
+In the protected code, v is closer to the top of the stack than buf. This means
+that a buffer overflow when writing to buf would not cause the value of v to be
+corrupted.
