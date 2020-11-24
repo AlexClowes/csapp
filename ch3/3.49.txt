@@ -1,0 +1,36 @@
+A:
+The relevant instructions are
+5   leaq    22(,%rdi,8), %rax
+6   andq    $-16, %rax
+7   subq    %rax, %rsp
+
+Line 5 computes 22 + 8n and stores it in %rax.
+
+Line 6 computes %rax & -16 and stores it in %rax. In two's-complement arithmetic
+-16 is represented as 0xF...F0, so this has the effect of setting the least
+significant 4 bits of %rax to 0, which is equivalent to rounding %rax down to the
+nearest multiple of 16, i.e. we have computed 16 * floor((22 + 8n) / 16).
+If n is even, then this is equivalent to 8n + 16. If n is odd, this is equivalent
+to 8n + 8.
+
+Line 7 allocates %rax bytes on the stack. So we always allocate more than the
+8 bytes required for the array p.
+
+B:
+The relevant instructions are
+8   leaq    7(%rsp), %rax
+9   shrq    $3, %rax
+10  leaq    0(,%rax,8), %r8
+
+Let the value stored in %rsp be s2. Then these lines have the effect of computing
+8 * floor((s2 + 7) / 8), which is equivalent to the value of s2 rounded up to the
+nearest multiple of 8.
+
+C:
+n  s1    s2    p     e1  e2
+5  2065  2017  2024  1   7
+6  2064  2000  2000  16  0
+
+D:
+s2 - s1 is always a multiple of 16.
+p is always a multiple of 8.
