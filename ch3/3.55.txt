@@ -1,0 +1,4 @@
+The high order bytes are 1077936128 = 0x40400000 and the lower order bytes are 0.
+From the exponent field we get a value of 1028, and subtracting the bias 1023
+gives an exponent of 5. The fractional field is 0, so the final value is
+2^5 * 1 = 32.

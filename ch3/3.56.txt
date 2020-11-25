@@ -1,0 +1,8 @@
+A:
+EXPR(x) = fabs(x)
+
+B:
+EXPR(x) = 0.0
+
+C:
+EXPR(x) = -x

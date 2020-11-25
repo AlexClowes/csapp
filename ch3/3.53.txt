@@ -1,0 +1,4 @@
+Either
+arg1_t = int, arg2_t = long, arg3_t = float, arg4_t = double
+or
+arg1_t = int, arg2_t = float, arg3_t = long, arg4_t = double.
