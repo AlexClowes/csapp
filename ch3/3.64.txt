@@ -1,0 +1,12 @@
+A:
+&A[i][j][k] = x_A + L(STi + Tj + k).
+
+B:
+65i + 13j + k = STi + Tj + k
+=> ST = 65, T = 13
+=> S = 5, T = 13.
+
+Also, sizeof(A) = 3640 = 8RST
+=> R = 3640 / 8ST = 3640 / 520 = 7.
+
+Therefore (R, S, T) = (7, 5, 13).

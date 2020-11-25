@@ -1,0 +1,7 @@
+We must have
+7 <= A <= 10
+5 <= B <= 8
+45 <= AB <= 46
+The only integer solution is then
+A = 9
+B = 5

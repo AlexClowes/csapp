@@ -1,0 +1,62 @@
+A:
+104 +---------------+
+    |       .       |
+    |       .       |
+    |       .       |
+64  +---------------+ <--- %rdi
+    |       .       |
+    |       .       |
+    |       .       |
+32  +---------------+
+    |       z       |
+24  +---------------+
+    |      &z       |
+16  +---------------+
+    |       y       |
+8   +---------------+
+    |       x       |
+0   +---------------+ <--- %rsp
+
+B:
+In the call to process, eval passes the memory location %rsp + 64.
+
+C:
+process accesses the elements of the structure argument s by retrieving them
+from the stack, where they were stored by eval.
+
+D:
+The code for process sets the fields of the result structure r by writing to the
+stack at %rdi + offset, in the unused space allocated by eval.
+
+E:
+104 +---------------+
+    |       .       |
+    |       .       |
+    |       .       |
+88  +---------------+
+    |       z       |
+80  +---------------+
+    |       x       |
+72  +---------------+
+    |       y       |
+64  +---------------+ <--- %rdi
+    |       .       |
+    |       .       |
+    |       .       |
+32  +---------------+
+    |       z       |
+24  +---------------+
+    |      &z       |
+16  +---------------+
+    |       y       |
+8   +---------------+
+    |       x       |
+0   +---------------+ <--- %rsp
+
+F:
+Structures are passed to functions by the caller storing the fields on the stack,
+and having the callee read from those locations on the stack.
+
+Structures are returned from functions by the caller allocating space on the
+stack and passing the callee the location of the allocated space as an argument.
+Then the callee writes the fields of the structure at the specified location.

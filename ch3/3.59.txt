@@ -1,0 +1,25 @@
+After sign extending x and y to 128 bits, we have
+x = 2^64 * xh + xl
+y = 2^64 * yh + yl
+where xh, xl, yh, yl are all 64 bit values.
+Then x * y = 2^64 * (xh * yl + xl * yh) + xl * yl (mod 2^128).
+So ph = xh * yl + xl * yh + (xl * yl)h,
+   pl = (xl * yl)l
+where we use the h and l suffices to indicate high and low 64 bits respectively.
+
+void store_prod(int128_t *dest, int64_t x, int64_t y);
+dest in %rdi, x in %rsi, y in %rdx
+
+movq    %rdx, %rax      Move y into %rax
+cqto                    Sign extend y into %rdx:%rax, so yh is in %rdx and yl is in %rax.
+movq    %rsi, %rcx      Move x into %rcx.
+sarq    $63, %rcx       Arithmetic shift of %rcx by 63. So xh is in %rcx.
+imulq   %rax, %rcx      Store xh * yl in %rcx.
+imulq   %rsi, %rdx      Store yh * xl in %rdx.
+addq    %rdx, %rcx      Store xh * yl + yh * xl in %rcx.
+mulq    %rsi            Store 128 bit product yl * xl in %rdx:%rax. So (xl * yl)h is in %rdx, and (xl * yl)l = pl is in %rax.
+addq    %rcx, %rdx      Store xh * yl + yh * xl + (xl * yl)h = ph in %rdx.
+movq    %rax, (%rdi)    Store pl at location dest.
+movq    %rdx, 8(%rdi)   Store ph at location dest + 8.
+
+So we have stored the product in the 16 bytes of memory starting at dest.
