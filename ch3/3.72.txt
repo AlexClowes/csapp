@@ -1,0 +1,18 @@
+A:
+s2 = s1 - (-16 & (8n + 30))
+   = s1 - (0xF...F0 & (8n + 30))
+This is s1 - 8n - 24 if n is odd and s1 - 8n - 16 if n is even.
+
+B:
+p = -16 & (s2 + 15)
+  = 0xF...F0 & (s2 + 15)
+This is equivalent to s2 rounded up to the nearest multiple of 16.
+
+C:
+With s1 = 1 (mod 16), n even, we have e1 = 1, the smallest possible value.
+With s1 = 0 (mod 16), n odd, we have e1 = 24, the largest possible value.
+
+D:
+p is always aligned to a multiple of 16 bytes.
+s2 is the smallest offset from the base pointer that guarantees at least 8n bytes
+are allocated for the array p.
