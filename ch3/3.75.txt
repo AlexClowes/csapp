@@ -1,0 +1,12 @@
+A:
+The first argument has real and imaginary parts stored in registers %xmm0 and
+%xmm1 respectively.
+The second argument has real and imaginary parts stored in registers %xmm2 and
+%xmm3 respectively.
+.
+.
+.
+
+B:
+The real and imaginary parts of the returned complex value are returned as %xmm0
+and %xmm1 respectively.
