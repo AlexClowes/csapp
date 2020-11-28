@@ -1,0 +1,2 @@
+For x86-64, it appears that the instruction "popq %rsp" will set the stack
+pointer to the value read from memory, i.e. it is the same as "movq (%rsp), %rsp.

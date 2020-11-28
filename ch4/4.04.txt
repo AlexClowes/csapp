@@ -1,0 +1,18 @@
+# long rsum(long *start, long count)
+# start in %rdi, count in %rsi
+rsum:
+    andq    %rsi, %rsi      # Test count
+    je      done            # Jump if count == 0
+    pushq   %rdi            # Push value of start onto the stack
+    imovq   $8, %r8         # Constant 8
+    imovq   $1, %r9         # Constant 1
+    addq    %r8, %rdi       # start++
+    subq    %r9, %rsi       # count--
+    call    rsum            # Call rsum
+    popq    %rdi            # Retrieve old value of start from the stack
+    mrmovq  (%rdi), %rdi    # Dereference start to get *start
+    addq    %rdi, %rax      # Add *start to return value of rsum
+    ret                     # Return
+done:
+    xorq    %rax, %rax      # Set return value to 0
+    ret                     # Return
