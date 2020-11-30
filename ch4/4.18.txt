@@ -1,0 +1,14 @@
+            Generic                Specific
+Stage       call Dest              call 0x041
+----------------------------------------------------------
+Fetch       icode:ifun <-- M1[PC]  icode:ifun <-- M1[0x037] = 8:0
+            valC <-- M8[PC + 1]    valC <-- M8[0x038] = 0x041
+            valP <-- PC + 9        valP <-- 0x037 + 0x9 = 0x040
+Decode      valB <-- R[%rsp]       valB <-- R[%rsp] = 128
+Execute     valE <-- valB + (-8)   valE <-- 128 - 8 = 120
+Memory      M8[valE] <-- valP      M8[120] <-- valP = 0x040
+Write back  R[%rsp] <-- valE       R[%rsp] <-- valE = 120
+PC update   PC <-- valC            PC <-- valC = 0x041
+
+This instruction has the effect of decrementing %rsp by 8, setting the program
+counter to 0x041, and writing the address 0x040 to memory address M[%rsp].

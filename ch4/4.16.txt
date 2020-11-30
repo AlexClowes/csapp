@@ -1,0 +1,2 @@
+Executing popq %rsp will set %rsp to the value stored in memory M[%rsp].
+This conforms to the desired behaviour for Y86-64.
