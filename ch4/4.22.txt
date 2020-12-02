@@ -1,0 +1,1 @@
+The M port should be given priority over the E port.
