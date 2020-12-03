@@ -1,0 +1,15 @@
+A:
+Placing a register between blocks C and D gives throughput of ~5.26GIPS and
+latency of 380ps.
+
+B:
+Placing registers between B and C and between D and E gives throughput of
+~7.69GIPS and latency of 390ps.
+
+C:
+Placing registers between A and B, C and D, D and E gives throughput of ~9.09GIPS
+and latency of 440ps.
+
+D:
+If we place registers between every adjacent block except for E and F, we obtain
+the maximum possible throughput of 10GIPS, with latency of 500ps.

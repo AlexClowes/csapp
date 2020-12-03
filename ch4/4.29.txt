@@ -1,0 +1,6 @@
+A:
+The latency would be (300 + 20k)ps.
+The throughput would be (k / (300 + 20k))TIPS.
+
+B:
+As k tends to infinity, the throughput tends to 0.05TIPS = 50GIPS.
